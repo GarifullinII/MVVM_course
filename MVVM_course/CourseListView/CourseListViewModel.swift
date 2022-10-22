@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct CourseListViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+protocol CourseListViewModelProtocol {
+    var message: String { get }
+    
+    func fetchDataButtonPressed()
 }
 
-struct CourseListViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        CourseListViewModel()
+class CourseListViewModel: CourseListViewModelProtocol, ObservableObject {
+    @Published var message: String = "Property inside observable object"
+    
+    func fetchDataButtonPressed() {
+        message = "Data is fetching"
     }
 }

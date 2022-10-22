@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct CourseListView: View {
+    
+    @StateObject private var viewModel = CourseListViewModel()
+    
     var body: some View {
         NavigationView {
             ScrollView {
-                
+                Text(viewModel.message)
             }
             .navigationBarTitle("Courses")
-            .navigationBarItems(trailing: Button("Fetch Data") {
-                
-            })
+            .navigationBarItems(trailing: Button("Fetch Data", action: viewModel.fetchDataButtonPressed))
         }
     }
 }

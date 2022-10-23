@@ -10,19 +10,15 @@ import Foundation
 class NetworkManager {
     static let shared = NetworkManager()
     
-    private let api = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
-    
     private init() {}
-    
-    func fetchData(completion: @escaping (_ courses: [Course]) -> Void) {
-        guard let url = URL(string: api) else { return }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No Discription")
-                return
-            }
-            
+    func fetchCourses(completion: @escaping (_ courses: [Course]) -> Void) {
+        guard let url = URL(string: Constants.courseURL.rawValue) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error { print(error); return }
+            guard let data = data else { return }
+                        
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -31,9 +27,19 @@ class NetworkManager {
                     completion(courses)
                 }
             } catch let error {
-                print("Error serialization json", error)
+                print("Error serialisation json", error.localizedDescription)
             }
             
         }.resume()
     }
+    
+    func fetchImageData(from url: String) -> Data? {
+        guard let imageURL = URL(string: url) else { return nil }
+        guard let imageData = try? Data(contentsOf: imageURL) else { return nil }
+        return imageData
+    }
+}
+
+enum Constants: String {
+    case courseURL = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
 }

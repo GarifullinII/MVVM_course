@@ -8,17 +8,20 @@
 import SwiftUI
 
 protocol CourseListViewModelProtocol {
-    var courses: [Course] { get }
+    var rows: [CourseDetailsViewModel] { get }
     
-    func fetchDataButtonPressed()
+    func fetchRows()
 }
 
 class CourseListViewModel: CourseListViewModelProtocol, ObservableObject {
-    @Published var courses: [Course] = []
+    @Published var rows: [CourseDetailsViewModel] = []
     
-    func fetchDataButtonPressed() {
-        NetworkManager.shared.fetchData() { courses in
-            self.courses = courses
+    func fetchRows() {
+        NetworkManager.shared.fetchCourses { [unowned self] courses in
+            courses.forEach { course in
+                let courseDetailsViewModel = CourseDetailsViewModel(course: course)
+                rows.append(courseDetailsViewModel)
+            }
         }
     }
 }

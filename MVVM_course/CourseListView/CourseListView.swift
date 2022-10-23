@@ -14,12 +14,16 @@ struct CourseListView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(viewModel.courses, id: \.name) { course in
-                    Text(course.name)
+                List(viewModel.rows, id: \.courseName) { courseDetailsViewModel in
+                    NavigationLink(destination: CourseDetailsView(viewModel: courseDetailsViewModel)) {
+                        RowView(viewModel: courseDetailsViewModel)
+                    }
                 }
             }
             .navigationBarTitle("Courses")
-            .navigationBarItems(trailing: Button("Fetch Data", action: viewModel.fetchDataButtonPressed))
+        }
+        .onAppear {
+            viewModel.fetchRows()
         }
     }
 }

@@ -15,6 +15,10 @@
 		6E273EDF290457CC006AE403 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273EDE290457CC006AE403 /* RowView.swift */; };
 		6E273EE129057E1A006AE403 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273EE029057E1A006AE403 /* NetworkManager.swift */; };
 		6E273EE329057E69006AE403 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273EE229057E69006AE403 /* Course.swift */; };
+		6E273EE529058185006AE403 /* CourseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273EE429058185006AE403 /* CourseDetailsViewModel.swift */; };
+		6E273EE72905827A006AE403 /* CourseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273EE62905827A006AE403 /* CourseDetailsView.swift */; };
+		6E273EEA29058751006AE403 /* CourseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273EE929058751006AE403 /* CourseImage.swift */; };
+		6E273EEC29058DE8006AE403 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E273EEB29058DE8006AE403 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		6E273EDE290457CC006AE403 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		6E273EE029057E1A006AE403 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6E273EE229057E69006AE403 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		6E273EE429058185006AE403 /* CourseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewModel.swift; sourceTree = "<group>"; };
+		6E273EE62905827A006AE403 /* CourseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsView.swift; sourceTree = "<group>"; };
+		6E273EE929058751006AE403 /* CourseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseImage.swift; sourceTree = "<group>"; };
+		6E273EEB29058DE8006AE403 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 				6E273EC729044744006AE403 /* MVVM_courseApp.swift */,
 				6E273ED52904477A006AE403 /* CourseListView */,
 				6E273ED629044790006AE403 /* CourseDetails */,
+				6E273EE829058725006AE403 /* Views */,
 				6E273ED7290447EB006AE403 /* Services */,
 				6E273ED8290447FB006AE403 /* Models */,
 				6E273ED92904481F006AE403 /* Resources */,
@@ -91,6 +100,8 @@
 		6E273ED629044790006AE403 /* CourseDetails */ = {
 			isa = PBXGroup;
 			children = (
+				6E273EE429058185006AE403 /* CourseDetailsViewModel.swift */,
+				6E273EE62905827A006AE403 /* CourseDetailsView.swift */,
 			);
 			path = CourseDetails;
 			sourceTree = "<group>";
@@ -99,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				6E273EE029057E1A006AE403 /* NetworkManager.swift */,
+				6E273EEB29058DE8006AE403 /* DataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -117,6 +129,14 @@
 				6E273ECB29044747006AE403 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6E273EE829058725006AE403 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E273EE929058751006AE403 /* CourseImage.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,8 +210,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E273EE329057E69006AE403 /* Course.swift in Sources */,
+				6E273EEC29058DE8006AE403 /* DataManager.swift in Sources */,
 				6E273EC829044744006AE403 /* MVVM_courseApp.swift in Sources */,
+				6E273EEA29058751006AE403 /* CourseImage.swift in Sources */,
 				6E273EDD290457B1006AE403 /* CourseListViewModel.swift in Sources */,
+				6E273EE529058185006AE403 /* CourseDetailsViewModel.swift in Sources */,
+				6E273EE72905827A006AE403 /* CourseDetailsView.swift in Sources */,
 				6E273EE129057E1A006AE403 /* NetworkManager.swift in Sources */,
 				6E273EDB2904571C006AE403 /* CourseListView.swift in Sources */,
 				6E273EDF290457CC006AE403 /* RowView.swift in Sources */,

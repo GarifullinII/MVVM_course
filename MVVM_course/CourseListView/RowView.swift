@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct RowView: View {
+    
+    let viewModel: CourseDetailsViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            CourseImage(
+                imageData: viewModel.imageData,
+                imageSize: CGSize(width: 130, height: 100),
+                cornerRadius: 10,
+                shadowIsOn: false
+            )
+            Text(viewModel.courseName)
+            Spacer()
+        }
     }
 }
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView()
+        RowView(viewModel: CourseDetailsViewModel(course: Course.getCourse()))
     }
 }

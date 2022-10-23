@@ -14,7 +14,9 @@ struct CourseListView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Text(viewModel.message)
+                ForEach(viewModel.courses, id: \.name) { course in
+                    Text(course.name)
+                }
             }
             .navigationBarTitle("Courses")
             .navigationBarItems(trailing: Button("Fetch Data", action: viewModel.fetchDataButtonPressed))

@@ -8,15 +8,17 @@
 import SwiftUI
 
 protocol CourseListViewModelProtocol {
-    var message: String { get }
+    var courses: [Course] { get }
     
     func fetchDataButtonPressed()
 }
 
 class CourseListViewModel: CourseListViewModelProtocol, ObservableObject {
-    @Published var message: String = "Property inside observable object"
+    @Published var courses: [Course] = []
     
     func fetchDataButtonPressed() {
-        message = "Data is fetching"
+        NetworkManager.shared.fetchData() { courses in
+            self.courses = courses
+        }
     }
 }
